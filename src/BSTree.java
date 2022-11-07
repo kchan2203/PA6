@@ -373,6 +373,7 @@ public class BSTree<T extends Comparable<? super T>> implements Iterable {
          * Iterates to the next element, if the element removed from the stack has a right element
          * then add that element's left path.
          * @return the top element in the stack
+         * @throws NoSuchElementException when there are no more elements to iterate through
          */
         public T next() {
             if(!hasNext()) throw new NoSuchElementException();
@@ -397,6 +398,12 @@ public class BSTree<T extends Comparable<? super T>> implements Iterable {
 
     /* * * * * Extra Credit Methods * * * * */
 
+    /**
+     * Checks to see if the two given iterators have common values
+     * @param iter1 iterator of bst1
+     * @param iter2 iterator of bst2
+     * @return an ArrayList of common values
+     */
     public ArrayList<T> intersection(Iterator<T> iter1, Iterator<T> iter2) {
         ArrayList<T> bst1 = new ArrayList<>();
         while(iter1.hasNext()){

@@ -238,7 +238,6 @@ public class BSTreeTester {
     public void iteratorNextTest4(){
         BSTree<Integer> intTree = new BSTree<>();
         Iterator<Integer> iter = intTree.iterator();
-        //System.out.println(iter.next());
         assertFalse(iter.hasNext());
 
         BSTree<Integer> intTree2 = new BSTree<>();
@@ -248,6 +247,17 @@ public class BSTreeTester {
         intTree2.insert(40);
         Iterator<Integer> iter2 = intTree2.iterator();
         assertTrue(iter2.hasNext());
+    }
+    @Test (expected = NoSuchElementException.class)
+    public void iteratorNextTest5(){
+        Iterator<Integer> bsti1 =bst1.iterator();
+        assertEquals(bsti1.next(),new Integer(1));
+        assertEquals(bsti1.next(),new Integer(2));
+        assertEquals(bsti1.next(),new Integer(3));
+        assertEquals(bsti1.next(),new Integer(4));
+        assertEquals(bsti1.next(),new Integer(5));
+        assertEquals(bsti1.next(),new Integer(6));
+        bsti1.next();
     }
 
     @Test
